@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="#A0A0A0"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".BudPopUpFragment">
+
+    <!--    close dialog button-->
+    <ImageView
+        android:id="@+id/bud_imgClose"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/close_dialog_background"
+        android:src="@drawable/close_dialog"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:elevation="2dp"/>
+    <!--        android:layout_marginStart="1dp"-->
+    <!--        android:layout_marginTop="1dp"-->
+
+    <TextView
+        android:id="@+id/txtView_bud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="7dp"
+        android:text="Increase Budget"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:clickable="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--       about 14 characters of an expense name allowed -->
+
+    <!--   limit up to 99.99 on a single expense -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$"
+        android:textSize="20dp"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/black"
+        android:clickable="false"
+        app:layout_constraintTop_toBottomOf="@id/txtView_bud"
+        app:layout_constraintEnd_toStartOf="@id/et_bud_moneyInput"/>
+
+    <EditText
+        android:id="@+id/et_bud_moneyInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:layout_marginStart="10dp"
+        android:padding="7dp"
+        android:inputType="numberDecimal"
+        android:background="@drawable/custom_edit_text_cut"
+        android:maxLength="5"
+        android:hint="Enter $"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtView_bud" />
+
+    <!--    has a specific date format (ex. 12/34/2004, 06/05/1997,etc.) -->
+
+    <Button
+        android:id="@+id/btn_bud_buttonEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="50dp"
+        android:backgroundTint="#D9D9D9"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:text="Add"
+        app:layout_constraintStart_toEndOf="@+id/et_bud_moneyInput"
+        app:layout_constraintTop_toTopOf="@+id/et_bud_moneyInput"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
