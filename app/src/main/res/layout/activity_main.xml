@@ -1,30 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Credits: Joann Sum-->
 <RelativeLayout    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/budget"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:textSize="50sp"
+        android:visibility="visible"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024" />
+
+
     <LinearLayout
+        android:layout_below="@id/title"
         android:id="@+id/balance_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total Balance"
+            android:text="@string/total_balance"
             android:textAllCaps="true"
             android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:paddingRight="25dp"
+            android:textSize="25sp"/>
         <TextView
             android:id="@+id/balance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="$300"
-            android:textSize="32sp"
+            android:textSize="25sp"
             android:textStyle="bold"/>
     </LinearLayout>
 
@@ -33,16 +57,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/balance_layout"
-        android:layout_marginTop="5dp"
+
         android:layout_marginStart="10dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
         app:cardCornerRadius="12dp">
         <LinearLayout
             android:baselineAligned="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp">
+            >
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -61,7 +84,7 @@
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Budget"
+                    android:text="@string/budget"
                     android:textSize="14sp"
                     android:textAllCaps="true"/>
 
@@ -83,7 +106,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Expense"
+                    android:text="@string/expense"
                     android:textSize="14sp"
                     android:textAllCaps="true"/>
 
@@ -98,14 +121,14 @@
         android:layout_height="200dp"
         android:layout_below="@id/dashboard"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginStart="2dp"
+
+        android:layout_marginBottom="2dp" />
 
 <!--    RANDOM PLACEHOLDER-->
 
     <LinearLayout
+        android:baselineAligned="false"
         android:id="@+id/table_title2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -121,7 +144,7 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Category"
+                android:text="@string/category"
                 android:textStyle="bold"
                 android:textSize="14sp"
                 android:textAllCaps="true"/>
@@ -137,7 +160,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Amount"
+                android:text="@string/amount"
                 android:textStyle="bold"
                 android:textSize="14sp"
                 android:textAllCaps="true"/>
@@ -145,17 +168,9 @@
         </LinearLayout>
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/table_title2"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp" />
 
     <LinearLayout
+        android:baselineAligned="false"
         android:id="@+id/buttons"
         android:layout_below="@id/chart"
         android:layout_width="match_parent"
@@ -211,88 +226,69 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="Transactions"
+        android:text="@string/transactions"
         android:textStyle="bold"
         android:textAllCaps="true"/>
 
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/table_title2"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="80dp" />
 
 
 
-<!--    <LinearLayout-->
-<!--        android:id="@+id/table_title"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:layout_below="@id/recyclerview_title">-->
-<!--        <LinearLayout-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical"-->
-<!--            android:layout_weight="0.3"-->
-<!--            android:gravity="start">-->
-<!--            <TextView-->
 
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Category"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textSize="14sp"-->
-<!--                android:textAllCaps="true"/>-->
 
-<!--        </LinearLayout>-->
-<!--        <LinearLayout-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical"-->
-<!--            android:layout_weight="0.3"-->
-<!--            android:gravity="start">-->
 
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Description"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textSize="14sp"-->
-<!--                android:textAllCaps="true"/>-->
+    <ImageButton
+        android:id="@+id/budgetPage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="21dp"
+        android:layout_toLeftOf="@id/historyPage"
+        android:background="@drawable/cornerbutton"
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/budget"
+        android:src="@drawable/baseline_attach_money_24" />
 
-<!--        </LinearLayout>-->
-<!--        <LinearLayout-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical"-->
-<!--            android:layout_weight="0.3"-->
-<!--            android:gravity="center">-->
+    <ImageButton
+        android:id="@+id/historyPage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/cornerbutton"
+        android:backgroundTint="@color/white"
 
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Amount"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textSize="14sp"-->
-<!--                android:textAllCaps="true"/>-->
+        android:contentDescription="@string/history"
+        android:paddingBottom="10dp"
+        android:src="@drawable/baseline_access_time_24"
+        android:textColor="@color/white" />
 
-<!--        </LinearLayout>-->
-<!--    </LinearLayout>-->
-    
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/recyclerview"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_below="@id/table_title"-->
-<!--        android:layout_margin="10dp" />-->
+    <ImageButton
+        android:id="@+id/settingsPage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="4dp"
+        android:layout_marginBottom="20dp"
 
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:id="@+id/addBtn"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_alignParentRight="true"-->
-<!--        android:contentDescription="@string/add_transaction"-->
-<!--        android:layout_margin="10dp"-->
-<!--        android:src="@drawable/ic_add"-->
-<!--        android:backgroundTint="@color/white"-->
-<!--        app:borderWidth="0dp"/>-->
+        android:layout_toRightOf="@id/historyPage"
+        android:background="@drawable/cornerbutton"
+        android:backgroundTint="@color/white"
+        android:contentDescription="Settings"
+        android:scaleType="fitCenter"
+        android:src="@drawable/setting" />
 
 
 </RelativeLayout>

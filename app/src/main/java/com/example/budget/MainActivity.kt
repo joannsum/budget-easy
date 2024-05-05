@@ -14,6 +14,7 @@ import com.github.mikephil.charting.utils.ColorTemplate
 import com.github.mikephil.charting.utils.MPPointF
 import kotlin.math.abs
 import android.graphics.Color
+import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import com.github.mikephil.charting.animation.Easing
@@ -101,6 +102,24 @@ class MainActivity : AppCompatActivity() {
             showPopUpExpense.show(supportFragmentManager, "showPopUpExpense")
         }
 
+        binding.historyPage.setOnClickListener{
+            startActivity(Intent(this,MainActivity2::class.java))
+        }
+
+        binding.settingsPage.setOnClickListener{
+            startActivity(Intent(this,MainActivity3::class.java))
+        }
+
+
+    }
+
+    fun onClick(v: View?) {
+        when(v?.id) {
+            R.id.historyPage->{val intent1= Intent(this,MainActivity2::class.java)//replace MainActivity2 with whatever History page is named
+                startActivity(intent1)}
+            R.id.settingsPage->{val intent2= Intent(this,MainActivity3::class.java)//replace MainActivity3 with whatever Credit page is named
+                startActivity(intent2)}
+        }
     }
 
     fun updateCategories(){
@@ -120,10 +139,9 @@ class MainActivity : AppCompatActivity() {
              Toast.makeText(baseContext, temp, Toast.LENGTH_LONG).show()   //displays converted user input
 
          }
-//
 
-         updateDashboard()
-         setChart()
+//         updateDashboard()
+//         setChart()
 
     }
 
@@ -138,42 +156,6 @@ class MainActivity : AppCompatActivity() {
         binding.expense.text = "$ %.2f".format(abs(expenseAmount))
 
     }
-
-    private fun updateAllOnclick(){
-        //Update transactions first=
-        
-
-        //Update Categories =
-
-
-        //Update Piechart values =
-//        if (categories.isNotEmpty()){
-//            for (category in categories) {
-//                val fraction = ((category.value/totalBudget)*100).toFloat()
-//                profitValues.add(PieEntry(fraction,category.key))
-//            }
-//        }
-
-        //set new piechart
-        setChart()
-    }
-
-    private fun dataListing(){
-        profitValues.add(PieEntry(35f, "PAINNN"))
-        profitValues.add(PieEntry(35f, "SUFFERING"))
-        profitValues.add(PieEntry(35f, "TORMENT"))
-        profitValues.add(PieEntry(35f, "YIKES"))
-
-//        if (categories.isNotEmpty()){
-//            for (category in categories) {
-//                val fraction = ((category.amount/totalBudget)*100).toFloat()
-//                profitValues.add(PieEntry(fraction,category.label))
-//            }
-//        }
-
-        //setChart()
-    }
-
     private fun setChart(){
         for (category in categories) {
             val fraction = ((category.amount/400)*100).toFloat()
@@ -186,9 +168,9 @@ class MainActivity : AppCompatActivity() {
         pieChart.setExtraOffsets(5f, 10f, 5f, 5f)
         pieChart.dragDecelerationFrictionCoef = 0.95f
 
-        // on below line we are setting hole
-        // and hole color for pie chart
+
         pieChart.isDrawHoleEnabled = true
+
         pieChart.setHoleColor(Color.BLACK)
 
         // on below line we are setting circle color and alpha
@@ -199,12 +181,9 @@ class MainActivity : AppCompatActivity() {
         pieChart.holeRadius = 58f
         pieChart.transparentCircleRadius = 61f
 
-        // on below line we are setting center text
         pieChart.setDrawCenterText(true)
 
 
-        // on below line we are setting
-        // rotation for our pie chart
         pieChart.rotationAngle = 0f
 
         // enable rotation of the pieChart by touch
