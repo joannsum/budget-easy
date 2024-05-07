@@ -1,5 +1,6 @@
 package com.example.budget
 
+import android.app.Application
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,6 +18,7 @@ import android.graphics.Color
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import androidx.activity.viewModels
 import com.github.mikephil.charting.animation.Easing
 
 
@@ -29,6 +31,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var categoryAdapter: CategoryAdapter
     private lateinit var linearLayoutManager: LinearLayoutManager
     private lateinit var pieChart: PieChart
+
+    val categoryViewModel: CategoryViewModel by viewModels {
+        CategoryModelFactory((application as SomeApplication).repository)
+    }
 
     //private var totalBudget = 400.0
     private var totalAmount = 0.0
@@ -58,12 +64,13 @@ class MainActivity : AppCompatActivity() {
 //        transactionAdapter = TransactionAdapter(transactions)
 //        linearLayoutManager = LinearLayoutManager(this)
 
+        //display total saved - total of all categoryitems where label != Saved
         categories = arrayListOf(
-            Category("Saved",(400.00-170.00),"01/25/2012"),
-            Category("Food",20.00,"01/25/2012"),
-            Category("Transportation",40.00,"01/25/2012"),
-            Category("Loans",100.00,"01/25/2012"),
-            Category("Entertainment",10.00,"01/25/2012"),
+            Category("Saved",(400.00),"01/25/2012","Desc"),
+            Category("Food",20.00,"01/25/2012","Desc"),
+            Category("Transportation",40.00,"01/25/2012","Desc"),
+            Category("Loans",100.00,"01/25/2012","Desc"),
+            Category("Entertainment",10.00,"01/25/2012","Desc"),
         )
         //categories.add(Category("Saved",totalAmount.toFloat()))
 
@@ -76,22 +83,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         updateDashboard()//updates text
-
-//        for (category in categories) {
-//            val fraction = ((category.amount/400)*100).toFloat()
-//            profitValues.add(PieEntry(category.amount.toFloat(),category.label))
-//        }
-
-        //profitValues.add(PieEntry((314f/400f),"Savings"))
-
-        //updateCategories()//for updating map for piechart categories
-        //dataListing()//update piechart
         setChart()
-
-//        binding.addBtn.setOnClickListener{
-//            val intent = Intent(this, AddTransactionActivity::class.java)
-//            startActivity(intent)
-//        }
 
         binding.addBudget.setOnClickListener{
             val showPopUpBudget = BudPopUpFragment()
@@ -226,3 +218,5 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+
+
