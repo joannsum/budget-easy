@@ -6,6 +6,8 @@
     android:layout_height="wrap_content"
     android:padding="16dp"
     android:background="#A0A0A0"
+    android:backgroundTint="#A0A0A0"
+    android:textColor="@color/black"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ExpPopUpFragment">
 
@@ -30,6 +32,7 @@
         android:text="Add an expense"
         android:textSize="23dp"
         android:textColor="@color/black"
+        android:backgroundTint="#A0A0A0"
         android:clickable="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,6 +66,7 @@
         android:textSize="20dp"
         android:layout_marginTop="15dp"
         android:textColor="@color/black"
+        android:backgroundTint="#A0A0A0"
         android:clickable="false"
         app:layout_constraintTop_toBottomOf="@id/txtView_exp"
         app:layout_constraintEnd_toStartOf="@id/et_exp_moneyInput"/>
@@ -87,6 +91,7 @@
         android:text="Date"
         android:textSize="13dp"
         android:textColor="@color/black"
+        android:backgroundTint="#A0A0A0"
         android:clickable="false"
         app:layout_constraintBottom_toTopOf="@id/et_exp_date"
         app:layout_constraintStart_toStartOf="@id/et_exp_date"/>

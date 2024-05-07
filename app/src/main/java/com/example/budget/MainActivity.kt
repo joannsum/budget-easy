@@ -22,7 +22,7 @@ import com.github.mikephil.charting.animation.Easing
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding:ActivityMainBinding
-    private lateinit var transactions : ArrayList<Transaction>
+    private lateinit var transactions : ArrayList<Transaction> // for time
     private lateinit var categories: ArrayList<Category>
     private lateinit var categoryCounter: List<String>
     private lateinit var transactionAdapter : TransactionAdapter
@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         transactions = arrayListOf(
             Transaction("Income",400.00, "Weekend Budget"),

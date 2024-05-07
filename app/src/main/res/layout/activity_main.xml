@@ -42,14 +42,16 @@
             android:textAllCaps="true"
             android:textStyle="bold"
             android:paddingRight="25dp"
-            android:textSize="25sp"/>
+            android:textSize="25sp"
+            android:textColor="@color/white"/>
         <TextView
             android:id="@+id/balance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="$300"
             android:textSize="25sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
     <com.google.android.material.card.MaterialCardView
@@ -86,7 +88,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/budget"
                     android:textSize="14sp"
-                    android:textAllCaps="true"/>
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"/>
 
             </LinearLayout>
             <LinearLayout
@@ -108,7 +111,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/expense"
                     android:textSize="14sp"
-                    android:textAllCaps="true"/>
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -147,7 +151,8 @@
                 android:text="@string/category"
                 android:textStyle="bold"
                 android:textSize="14sp"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true"
+                android:textColor="@color/white"/>
 
         </LinearLayout>
         <LinearLayout
@@ -163,7 +168,8 @@
                 android:text="@string/amount"
                 android:textStyle="bold"
                 android:textSize="14sp"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true"
+                android:textColor="@color/white"/>
 
         </LinearLayout>
     </LinearLayout>
@@ -228,7 +234,8 @@
         android:layout_marginTop="5dp"
         android:text="@string/transactions"
         android:textStyle="bold"
-        android:textAllCaps="true"/>
+        android:textAllCaps="true"
+        android:textColor="@color/white"/>
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -239,7 +246,9 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginBottom="80dp" />
+            android:layout_marginBottom="80dp"
+            android:textColor="@color/white"
+            />
 
 
 

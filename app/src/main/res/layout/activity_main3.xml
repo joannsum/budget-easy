@@ -50,8 +50,9 @@
                 android:layout_marginHorizontal="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="This app was created by Joann Sum, Kayla Gutierrez, and David Pham in Spring 2024 in CPSC 362 Intro to Software Engineering.
-"
+                android:text="This app was created by Joann Sum, Kayla Gutierrez, and David Pham in Spring 2024 in CPSC 362 Intro to Software Engineering."
+
+                android:textColor="@color/white"
                 android:textSize="20dp" />
             <TextView
                 android:id="@+id/textView4"
@@ -59,6 +60,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:text="To use the app, navigate to the home screen. There is a pie chart that displays the percentage of your expenses of the month. Additionally, there are buttons to add to your budget and for a new expense. For the budget, simply type how much you want to increase your budget by. To add a new expense, choose the category and type its name and price, as well as the date (04/09/2024 format) you made that expense."
+
+                android:textColor="@color/white"
                 android:textSize="20dp" />
             <TextView
                 android:id="@+id/textView5"
@@ -66,6 +69,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:text="You can also view your history by clicking on the history page, which displays all of your expenses in each category."
+
+                android:textColor="@color/white"
                 android:textSize="20dp" />
 
 

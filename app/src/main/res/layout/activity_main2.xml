@@ -96,12 +96,14 @@
         app:cornerRadius="40dp"
         tools:visibility="visible">
 
+<!--        background = black, take out to show individual bars-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"
-            android:fadeScrollbars="false" />
+            android:fadeScrollbars="false"
+            android:background="@color/black" />
 
 
     </LinearLayout>

@@ -3,8 +3,8 @@
     <style name="Base.Theme.Budget" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="android:textColor">@color/white</item>
-        <item name="android:background">@color/black</item>
+<!--        <item name="android:background">@color/black</item>-->
+<!--        <item name="android:textColor">@color/white</item>-->
         <item name="android:backgroundTint">@color/black</item>
         <item name="colorControlActivated">@color/white</item>
         <item name="android:textColorHint">@color/gray</item>
