@@ -14,7 +14,8 @@ class CustomAdapter(
     private var context: Context,
     private var titleList: ArrayList<String>,
     private var detailList: ArrayList<String>,
-    private var dateList:ArrayList<String>
+    private var dateList:ArrayList<String>,
+    private var descriptionList:ArrayList<String>
 ) :
     RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -25,6 +26,7 @@ class CustomAdapter(
         holder.title.text = titleList[position]
         holder.detail.text = detailList[position]
         holder.date.text=dateList[position]
+        holder.description.text = descriptionList[position]
     }
     override fun getItemCount(): Int {
         return titleList.size
@@ -33,5 +35,6 @@ class CustomAdapter(
         var title: TextView = itemView.findViewById<View>(R.id.item_title) as TextView
         var detail: TextView = itemView.findViewById<View>(R.id.item_detail) as TextView
         var date:TextView=itemView.findViewById<View>(R.id.item_date) as TextView
+        var description:TextView=itemView.findViewById<View>(R.id.item_description) as TextView
     }
 }

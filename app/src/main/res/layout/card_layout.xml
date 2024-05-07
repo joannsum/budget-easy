@@ -7,12 +7,10 @@
     android:id="@+id/cardItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="10dp"
-    android:layout_marginVertical="10dp"
+    android:layout_marginHorizontal="5dp"
+    android:layout_marginVertical="5dp"
     android:background="#D9D9D9"
     app:cardCornerRadius="25dp"
-    app:cardElevation="4dp"
-
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,21 +23,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Title"
-            android:padding="5dp"
+            android:paddingBottom="5dp"
+            android:paddingStart="5dp"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="17sp"
             app:layout_constraintLeft_toRightOf="@id/item_detail"
             app:layout_constraintTop_toTopOf="parent"
             ></TextView>
 
         <TextView
             android:id="@+id/item_detail"
-            android:padding="5dp"
+            android:paddingBottom="5dp"
+            android:paddingStart="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="details"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="17sp"
             app:layout_constraintLeft_toRightOf="@id/item_date"
             app:layout_constraintTop_toTopOf="parent"></TextView>
 
@@ -47,11 +47,27 @@
             android:id="@+id/item_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            android:paddingBottom="5dp"
+            android:paddingStart="5dp"
+            android:gravity="center_horizontal"
             android:text="date"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="17sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"></TextView>
+
+        <TextView
+            android:id="@+id/item_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingStart="5dp"
+            android:text="Description"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            app:layout_constraintLeft_toRightOf="@id/item_title"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

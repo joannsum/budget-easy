@@ -1,124 +1,148 @@
 {
   "Categories":[
     {
-      "title": "food",
-      "detail": "$897",
-      "date": "03/22/2024"
+      "label": "food",
+      "amount": "$897",
+      "date": "03/22/2024",
+      "details": "Banana"
     },
     {
-      "title": "transportation",
-      "detail": "$600",
-      "date": "02/23/2023"
+      "label": "transportation",
+      "amount": "$600",
+      "date": "02/23/2023",
+      "details": "description blah"
     },
     {
-      "title": "Health",
-      "detail": "$300",
-      "date": "01/25/2012"
+      "label": "Health",
+      "amount": "$300",
+      "date": "01/25/2012",
+      "details": "Banana"
     },
     {
-      "title": "food",
-      "detail": "$897",
-      "date": "03/22/2024"
+      "label": "food",
+      "amount": "$897",
+      "date": "03/22/2024",
+      "details": "Banana"
     },
     {
-      "title": "transportation",
-      "detail": "$600",
-      "date": "02/23/2023"
+      "label": "transportation",
+      "amount": "$600",
+      "date": "02/23/2023",
+      "details": "description blah"
     },
     {
-      "title": "Health",
-      "detail": "$300",
-      "date": "01/25/2012"
+      "label": "Health",
+      "amount": "$300",
+      "date": "01/25/2012",
+      "details": "Banana"
     },
     {
-      "title": "food",
-      "detail": "$897",
-      "date": "03/22/2024"
+      "label": "food",
+      "amount": "$897",
+      "date": "03/22/2024",
+      "details": "Banana"
     },
     {
-      "title": "transportation",
-      "detail": "$600",
-      "date": "02/23/2023"
+      "label": "transportation",
+      "amount": "$600",
+      "date": "02/23/2023",
+      "details": "description blah"
     },
     {
-      "title": "Health",
-      "detail": "$300",
-      "date": "01/25/2012"
+      "label": "Health",
+      "amount": "$300",
+      "date": "01/25/2012",
+      "details": "description blah"
     },
     {
-      "title": "food",
-      "detail": "$897",
-      "date": "03/22/2024"
+      "label": "food",
+      "amount": "$897",
+      "date": "03/22/2024",
+      "details": "description blah"
     },
     {
-      "title": "transportation",
-      "detail": "$600",
-      "date": "02/23/2023"
+      "label": "transportation",
+      "amount": "$600",
+      "date": "02/23/2023",
+      "details": "description blah"
     },
     {
-      "title": "Health",
-      "detail": "$300",
-      "date": "01/25/2012"
+      "label": "Health",
+      "amount": "$300",
+      "date": "01/25/2012",
+      "details": "description blah"
     },
     {
-      "title": "food",
-      "detail": "$897",
-      "date": "03/22/2024"
+      "label": "food",
+      "amount": "$897",
+      "date": "03/22/2024",
+      "details": "description blah"
     },
     {
-      "title": "transportation",
-      "detail": "$600",
-      "date": "02/23/2023"
+      "label": "transportation",
+      "amount": "$600",
+      "date": "02/23/2023",
+      "details": "description blah"
     },
     {
-      "title": "Health",
-      "detail": "$300",
-      "date": "01/25/2012"
+      "label": "Health",
+      "amount": "$300",
+      "date": "01/25/2012",
+      "details": "description blah"
     },
     {
-      "title": "food",
-      "detail": "$897",
-      "date": "03/22/2024"
+      "label": "food",
+      "amount": "$897",
+      "date": "03/22/2024",
+      "details": "description blah"
     },
     {
-      "title": "transportation",
-      "detail": "$600",
-      "date": "02/23/2023"
+      "label": "transportation",
+      "amount": "$600",
+      "date": "02/23/2023",
+      "details": "description blah"
     },
     {
-      "title": "Health",
-      "detail": "$300",
-      "date": "01/25/2012"
+      "label": "Health",
+      "amount": "$300",
+      "date": "01/25/2012",
+      "details": "description blah"
     },
     {
-      "title": "food",
-      "detail": "$897",
-      "date": "03/22/2024"
+      "label": "food",
+      "amount": "$897",
+      "date": "03/22/2024",
+      "details": "description blah"
     },
     {
-      "title": "transportation",
-      "detail": "$600",
-      "date": "02/23/2023"
+      "label": "transportation",
+      "amount": "$600",
+      "date": "02/23/2023",
+      "details": "description blah"
     },
     {
-      "title": "Health",
-      "detail": "$300",
-      "date": "01/25/2012"
+      "label": "Health",
+      "amount": "$300",
+      "date": "01/25/2012",
+      "details": "description blah"
     },
     {
-      "title": "food",
-      "detail": "$897",
-      "date": "03/22/2024"
+      "label": "food",
+      "amount": "$897",
+      "date": "03/22/2024",
+      "details": "description blah"
     },
     {
-      "title": "transportation",
-      "detail": "$600",
-      "date": "02/23/2023"
+      "label": "transportation",
+      "amount": "$600",
+      "date": "02/23/2023",
+      "details": "description blah"
     },
     {
-      "title": "Health",
-      "detail": "$300",
-      "date": "01/25/2012"
+      "label": "Health",
+      "amount": "$300",
+      "date": "01/25/2012",
+      "details": "description blah"
     }
   ]
 }

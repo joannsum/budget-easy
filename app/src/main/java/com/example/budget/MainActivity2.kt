@@ -29,6 +29,7 @@ class MainActivity2 : AppCompatActivity() {
     var titleList= arrayListOf<String>()
     var detailList= arrayListOf<String>()
     var dateList= arrayListOf<String>()
+    var descriptionList = arrayListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,21 +50,27 @@ class MainActivity2 : AppCompatActivity() {
         }
 
         try{
-            val obj = JSONObject(loadJSONFromAsset())
-            val userArray = obj.getJSONArray("Categories")
-            for (i in 0 until userArray.length()) {
-                val categories=userArray.getJSONObject(i)
-                titleList.add(categories.getString("title"))
-                detailList.add(categories.getString("detail"))
-                dateList.add(categories.getString("date"))
-            }
+            updateHistoryLog()
         }
         catch(e:JSONException){
             e.printStackTrace()
         }
-        val customAdapter=CustomAdapter(this@MainActivity2,titleList,detailList,dateList)
+        val customAdapter=CustomAdapter(this@MainActivity2,titleList,detailList,dateList,descriptionList)
         recyclerView.adapter=customAdapter
 
+    }
+
+    private fun updateHistoryLog(){
+        val obj = JSONObject(loadJSONFromAsset())
+        val userArray = obj.getJSONArray("Categories")
+        for (i in 0 until userArray.length()) {
+            val categories=userArray.getJSONObject(i)
+            titleList.add(categories.getString("label"))
+            detailList.add(categories.getString("amount"))
+            dateList.add(categories.getString("date"))
+            descriptionList.add(categories.getString("details"))
+
+        }
     }
 
     private fun loadJSONFromAsset(): String {

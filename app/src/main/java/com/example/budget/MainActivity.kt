@@ -59,11 +59,11 @@ class MainActivity : AppCompatActivity() {
 //        linearLayoutManager = LinearLayoutManager(this)
 
         categories = arrayListOf(
-            Category("Saved",(400.00-170.00)),
-            Category("Food",20.00),
-            Category("Transportation",40.00),
-            Category("Education",100.00),
-            Category("Entertainment",10.00),
+            Category("Saved",(400.00-170.00),"01/25/2012"),
+            Category("Food",20.00,"01/25/2012"),
+            Category("Transportation",40.00,"01/25/2012"),
+            Category("Loans",100.00,"01/25/2012"),
+            Category("Entertainment",10.00,"01/25/2012"),
         )
         //categories.add(Category("Saved",totalAmount.toFloat()))
 
