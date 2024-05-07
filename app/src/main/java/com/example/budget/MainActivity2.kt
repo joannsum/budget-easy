@@ -60,6 +60,13 @@ class MainActivity2 : AppCompatActivity() {
 
     }
 
+    fun updateJSON(oldString:String, newJSONString:String){
+
+        //var yourModel = JSONObject(loadJSONFromAsset()).fromJson(newJSONString, Category::class.java)
+
+
+    }
+
     private fun updateHistoryLog(){
         val obj = JSONObject(loadJSONFromAsset())
         val userArray = obj.getJSONArray("Categories")

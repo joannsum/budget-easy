@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -51,6 +52,8 @@ android {
 }
 
 dependencies {
+    implementation("com.google.code.gson:gson:2.10.1")
+
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
     val version = "2.6.1"
