@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
     private var budgetAmount = 0.0
 
     private var expenseAmount = 0.0
+
     private val profitValues = ArrayList<PieEntry>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,37 +49,18 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        transactions = arrayListOf(
-            Transaction("Income",400.00, "Weekend Budget"),
-            Transaction("Food",-20.00, "Bananas"),
-            Transaction("Transportation",-40.00, "Gas"),
-            Transaction("Food",-100.00,"Breakfast"),
-            Transaction("Food",0.00,"Water Bottle"),
-            Transaction("Other",-10.00,"Sunscreen"),
-            Transaction("Transportation",0.00,"Car Wash")
-        )
-
-
-//        transactionAdapter = TransactionAdapter(transactions)
-//        linearLayoutManager = LinearLayoutManager(this)
-
-        //display total saved - total of all categoryitems where label != Saved
         categories = arrayListOf(
-            Category("Saved",(400.00),"01/25/2012","Desc"),
-            Category("Food",20.00,"01/25/2012","Desc"),
-            Category("Transportation",40.00,"01/25/2012","Desc"),
-            Category("Loans",100.00,"01/25/2012","Desc"),
-            Category("Entertainment",10.00,"01/25/2012","Desc"),
-        )
-        //categories.add(Category("Saved",totalAmount.toFloat()))
+            Category("Saved",0.00,"01/25/2012","Desc"),
+            Category("Food",0.00,"01/25/2012","Desc"),
+            Category("Transportation",0.00,"01/25/2012","Desc"),
+            Category("Loans",0.00,"01/25/2012","Desc"),
+            Category("Entertainment",0.00,"01/25/2012","Desc"))
+
 
         categoryAdapter = CategoryAdapter(categories)
         linearLayoutManager = LinearLayoutManager(this)
 
-        binding.recyclerview2.apply {
-            adapter = categoryAdapter
-            layoutManager = linearLayoutManager
-        }
+        setRecyclerView()
 
         updateDashboard()//updates text
         setChart()
@@ -104,6 +86,17 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun setRecyclerView()
+    {
+        val mainActivity = this
+        categoryViewModel.categoryItems.observe(this){
+            binding.recyclerview2.apply {
+                layoutManager = LinearLayoutManager(applicationContext)
+                adapter = categoryAdapter
+            }
+        }
+    }
+
     fun onClick(v: View?) {
         when(v?.id) {
             R.id.historyPage->{val intent1= Intent(this,MainActivity2::class.java)//replace MainActivity2 with whatever History page is named
@@ -119,16 +112,36 @@ class MainActivity : AppCompatActivity() {
             totalAmount = categoryViewModel.calculateTotalAmount(list) // Assuming you have a function to calculate total
             budgetAmount = categoryViewModel.calculateTotalBudget(list)
             expenseAmount = categoryViewModel.calculateTotalExpense(list)
+
+            binding.balance.text = "$ %.2f".format(totalAmount)
+            binding.budget.text = "$ %.2f".format(budgetAmount)
+            binding.expense.text = "$ %.2f".format(abs(expenseAmount))
         }
 
-        binding.balance.text = "$ %.2f".format(totalAmount)
-        binding.budget.text = "$ %.2f".format(budgetAmount)
-        binding.expense.text = "$ %.2f".format(abs(expenseAmount))
+
 
     }
     private fun setChart(){
-        for (category in categories) {
-            val fraction = ((category.amount/400)*100).toFloat()
+
+        categoryViewModel.categoryItems.observe(this) { list ->
+            //saved
+            categories[0].amount = categoryViewModel.calculateTotalBudget(list) - categoryViewModel.calculateTotalExpense(list)
+
+            //food
+            categories[1].amount = categoryViewModel.calculateFoodTotal(list)
+
+            //transit
+            categories[2].amount = categoryViewModel.calculateTransTotal(list)
+
+            //loans
+            categories[3].amount = categoryViewModel.calculateLoanTotal(list)
+
+            //entertainment
+            categories[4].amount = categoryViewModel.calculateFunTotal(list)
+
+        }
+
+        for (category in categories){
             profitValues.add(PieEntry(category.amount.toFloat(),category.label))
         }
 

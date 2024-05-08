@@ -1,7 +1,5 @@
 package com.example.budget
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.*
 import androidx.lifecycle.viewModelScope
 
@@ -24,8 +22,9 @@ class CategoryViewModel(private val repository: CategoryRepository): ViewModel()
         }
     }
 
-    fun calculateTotalAmount(list:List<Category>):Double{
-        return list.sumOf{ it.amount }
+    fun calculateTotalAmount(list: List<Category>): Double {
+        return list.filter { it.label == "Saved" }
+            .sumOf { it.amount } - list.filter { it.label != "Saved" }.sumOf { it.amount }
     }
 
     fun calculateTotalExpense(list:List<Category>):Double{
@@ -34,6 +33,19 @@ class CategoryViewModel(private val repository: CategoryRepository): ViewModel()
 
     fun calculateTotalBudget(list:List<Category>):Double{
         return list.filter{ it.label == "Saved"}.sumOf{ it.amount }
+    }
+
+    fun calculateFunTotal(list:List<Category>):Double{
+        return list.filter { it.label == "Entertainment" }.sumOf{ it.amount }
+    }
+    fun calculateFoodTotal(list:List<Category>):Double{
+        return list.filter { it.label == "Food" }.sumOf{ it.amount }
+    }
+    fun calculateLoanTotal(list:List<Category>):Double{
+        return list.filter { it.label == "Loans" }.sumOf{ it.amount }
+    }
+    fun calculateTransTotal(list:List<Category>):Double{
+        return list.filter { it.label == "Transportation" }.sumOf{ it.amount }
     }
 
     fun updateCategory(category: Category){
