@@ -26,9 +26,15 @@ class CategoryAdapter(private var categories: ArrayList<Category>) :
         val context = holder.amount.context
 
         holder.label.text = category.label
-        holder.amount.text = "$%.2f".format(abs(category.amount))
+        holder.amount.text = "$%.2f".format(category.amount)
         if (holder.label.text == "Saved"){
-            holder.amount.setTextColor(ContextCompat.getColor(context, R.color.green))
+            if (category.amount < 0){
+                holder.amount.setTextColor(ContextCompat.getColor(context, R.color.red))
+
+            }
+            else{
+                holder.amount.setTextColor(ContextCompat.getColor(context, R.color.green))
+            }
         }
         else {
             holder.amount.setTextColor(ContextCompat.getColor(context, R.color.red))

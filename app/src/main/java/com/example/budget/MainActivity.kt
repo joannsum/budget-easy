@@ -125,7 +125,13 @@ class MainActivity : AppCompatActivity() {
 
         categoryViewModel.categoryItems.observe(this) { list ->
             //saved
-            categories[0].amount = categoryViewModel.calculateTotalBudget(list) - categoryViewModel.calculateTotalExpense(list)
+            val temp = categoryViewModel.calculateTotalBudget(list) - categoryViewModel.calculateTotalExpense(list)
+            if (temp > categoryViewModel.calculateTotalBudget(list)){
+                categories[0].amount = -(temp)
+            }
+            else{
+                categories[0].amount = temp
+            }
 
             //food
             categories[1].amount = categoryViewModel.calculateFoodTotal(list)
