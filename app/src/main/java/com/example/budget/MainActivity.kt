@@ -125,9 +125,11 @@ class MainActivity : AppCompatActivity() {
 
         categoryViewModel.categoryItems.observe(this) { list ->
             //saved
+            var tooBig = false
             val temp = categoryViewModel.calculateTotalBudget(list) - categoryViewModel.calculateTotalExpense(list)
             if (temp > categoryViewModel.calculateTotalBudget(list)){
                 categories[0].amount = -(temp)
+                tooBig = true
             }
             else{
                 categories[0].amount = temp
@@ -145,12 +147,25 @@ class MainActivity : AppCompatActivity() {
             //entertainment
             categories[4].amount = categoryViewModel.calculateFunTotal(list)
 
+            for (category in categories){
+                if (category.label == "Saved" && tooBig){
+                    //do nothin
+                } else {
+                    profitValues.add(PieEntry(category.amount.toFloat(),category.label))
+                }
+            }
+
+            setUpChart()
+
         }
 
-        for (category in categories){
-            profitValues.add(PieEntry(category.amount.toFloat(),category.label))
-        }
 
+
+
+
+    }
+
+    private fun setUpChart(){
         pieChart = binding.chart
         pieChart.setUsePercentValues(true)
         pieChart.description.isEnabled = false
