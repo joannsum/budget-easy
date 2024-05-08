@@ -88,8 +88,6 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 
-
-
     val room_version = "2.6.1"
 
     implementation("androidx.room:room-runtime:$room_version")

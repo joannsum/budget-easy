@@ -78,7 +78,7 @@ class ExpPopUpFragment : DialogFragment() { //Exp stands for 'expense'
         }
         //end of dropdown/spinner code
 
-        val application = requireActivity().application as? SomeApplication
+        val application = requireActivity().application as? SomeApplication ?: throw IllegalStateException("Activity application is null or not an instance of SomeApplication")
         val repository = application?.repository
         if (repository == null) {
             throw IllegalStateException("Unable to retrieve repository from application") //check in case of error

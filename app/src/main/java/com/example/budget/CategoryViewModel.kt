@@ -61,8 +61,6 @@ class CategoryViewModel(private val repository: CategoryRepository): ViewModel()
     }
 }
 
-
-
 class CategoryModelFactory(private val repository: CategoryRepository) : ViewModelProvider.Factory
 {
     override fun <T : ViewModel> create(modelClass: Class<T>): T

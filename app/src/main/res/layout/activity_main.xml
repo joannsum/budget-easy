@@ -272,6 +272,7 @@
             android:scrollbars="vertical"
             android:fadeScrollbars="false"
             android:layout_margin="5dp"
+            android:paddingLeft="10dp"
             />
     </LinearLayout>
 

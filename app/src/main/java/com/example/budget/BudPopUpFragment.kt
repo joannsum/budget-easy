@@ -13,6 +13,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.budget.databinding.FragmentBudPopUpBinding
 import kotlin.math.abs
 
+interface UpdateDashboardListener {
+    fun onUpdateDashboard()
+    fun onSetChart()
+}
 class BudPopUpFragment : DialogFragment() { //Bud stands for 'budget'
 
     private lateinit var binding: FragmentBudPopUpBinding
@@ -21,6 +25,7 @@ class BudPopUpFragment : DialogFragment() { //Bud stands for 'budget'
 
     var inputAmount: String = ""
     var inputDate: String = ""
+    private lateinit var updateDashboardListener: UpdateDashboardListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +54,8 @@ class BudPopUpFragment : DialogFragment() { //Bud stands for 'budget'
         }
         categoryViewModel = ViewModelProvider(requireActivity(), CategoryModelFactory(repository)).get(CategoryViewModel::class.java)
 
-
+        //Initialize updateDashboardListener
+        updateDashboardListener = activity as UpdateDashboardListener
 
         btnEditText.setOnClickListener{
             val valueMon = editTextMoney.text.toString()
@@ -74,12 +80,13 @@ class BudPopUpFragment : DialogFragment() { //Bud stands for 'budget'
                     Toast.makeText(context, connectedString, Toast.LENGTH_LONG).show()   //displays converted user input
                     insertDataToDatabase("Saved",valueMon.toDouble(),inputDate,"Increase budget")
 
-//                    mainActivity.updateDashboard()
-
                 } catch (nfe: NumberFormatException) {
                     println("YOU FAILED IN LIFE and to parse here $nfe")
                 }
 
+                //trigger methods in activity via interface
+                updateDashboardListener.onUpdateDashboard()
+                updateDashboardListener.onSetChart()
                   //inputDesc not available???
                 dismiss()
             }
@@ -94,7 +101,10 @@ class BudPopUpFragment : DialogFragment() { //Bud stands for 'budget'
     private fun insertDataToDatabase(chosenItem:String, inputAmount:Double, inputDate:String, inputDesc: String){
         val categoryItem = Category(chosenItem,inputAmount,inputDate,inputDesc)
         categoryViewModel.addCategory(categoryItem)
-
         Toast.makeText(requireContext(),"Successfully added!",Toast.LENGTH_LONG).show()
+    }
+
+    fun setUpdateDashboardListener(listener: UpdateDashboardListener) {
+        updateDashboardListener = listener
     }
 }

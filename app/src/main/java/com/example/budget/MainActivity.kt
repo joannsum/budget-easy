@@ -21,7 +21,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import com.github.mikephil.charting.animation.Easing
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), UpdateDashboardListener {
     private lateinit var binding:ActivityMainBinding
     private lateinit var transactions : ArrayList<Transaction> // for time
     private lateinit var categories: ArrayList<Category>
@@ -50,8 +50,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         categories = arrayListOf(
-            Category("Saved",0.00,"01/25/2012","Desc"),
-            Category("Food",0.00,"01/25/2012","Desc"),
+            Category("Saved",1.00,"01/25/2012","Desc"),
+            Category("Food",5.00,"01/25/2012","Desc"),
             Category("Transportation",0.00,"01/25/2012","Desc"),
             Category("Loans",0.00,"01/25/2012","Desc"),
             Category("Entertainment",0.00,"01/25/2012","Desc"))
@@ -83,6 +83,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this,MainActivity3::class.java))
         }
 
+        val fragment = BudPopUpFragment()
+        fragment.setUpdateDashboardListener(this)
 
     }
 
@@ -106,7 +108,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateDashboard(){
+    public fun updateDashboard(){
 
         categoryViewModel.categoryItems.observe(this) { list ->
             totalAmount = categoryViewModel.calculateTotalAmount(list) // Assuming you have a function to calculate total
@@ -121,8 +123,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    private fun setChart(){
-
+    public fun setChart(){
         categoryViewModel.categoryItems.observe(this) { list ->
             //saved
             categories[0].amount = categoryViewModel.calculateTotalBudget(list) - categoryViewModel.calculateTotalExpense(list)
@@ -205,6 +206,14 @@ class MainActivity : AppCompatActivity() {
             binding.chart.description.isEnabled = false
 
         }
+    }
+
+    override fun onUpdateDashboard() {
+        updateDashboard()
+    }
+
+    override fun onSetChart() {
+        setChart()
     }
 
 }
