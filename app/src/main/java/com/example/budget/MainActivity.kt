@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         categories = arrayListOf(
-            Category("Saved",0.00,"01/25/2012","Desc"),
+            Category("Saved",1.00,"01/25/2012","Desc"),
             Category("Food",0.00,"01/25/2012","Desc"),
             Category("Transportation",0.00,"01/25/2012","Desc"),
             Category("Loans",0.00,"01/25/2012","Desc"),

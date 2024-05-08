@@ -8,6 +8,7 @@ class CategoryRepository(private val categoryDao: CategoryDao) {
     val allCategory: Flow<List<Category>> = categoryDao.getAllCategoryItems()
     val allExpense: Flow<List<Category>> = categoryDao.getAllExpenses()
     val allSaved: Flow<List<Category>> = categoryDao.getBudget()
+
     val allFood: Flow<List<Category>> = categoryDao.getFoodItems()
     val allTransportation: Flow<List<Category>> = categoryDao.getTransportationItems()
     val allLoans: Flow<List<Category>> = categoryDao.getLoanItems()

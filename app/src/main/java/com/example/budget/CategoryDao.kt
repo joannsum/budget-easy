@@ -8,7 +8,6 @@ import kotlinx.coroutines.flow.Flow
 interface CategoryDao{
     @Query("SELECT * FROM category_table")
     fun getAllCategoryItems(): Flow<List<Category>>
-
     //all category items that are expenses.
     @Query("SELECT * FROM category_table WHERE label != 'Saved'")
     fun getAllExpenses(): Flow<List<Category>>
