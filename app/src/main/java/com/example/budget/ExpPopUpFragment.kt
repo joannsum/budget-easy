@@ -1,13 +1,12 @@
 package com.example.budget
 
+import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.Toast
@@ -16,9 +15,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.budget.databinding.FragmentExpPopUpBinding
 
 
+
 class ExpPopUpFragment : DialogFragment() { //Exp stands for 'expense'
 
-    //private lateinit var categoryViewModel: CategoryViewModel
     private lateinit var binding: FragmentExpPopUpBinding
     private lateinit var categoryViewModel:CategoryViewModel
 
@@ -82,8 +81,15 @@ class ExpPopUpFragment : DialogFragment() { //Exp stands for 'expense'
 //        val categoryRepository = CategoryRepository() // Create your repository instance
 //        val categoryViewModelFactory = CategoryModelFactory(categoryRepository)
 //        categoryViewModel = ViewModelProvider(requireActivity(), categoryViewModelFactory).get(CategoryViewModel::class.java)
+        val application = requireActivity().application as? SomeApplication
+        val repository = application?.repository
+        if (repository == null) {
+            throw IllegalStateException("Unable to retrieve repository from application") //check in case of error
+        }
+        categoryViewModel = ViewModelProvider(requireActivity(), CategoryModelFactory(repository)).get(CategoryViewModel::class.java)
 
-        categoryViewModel = ViewModelProvider(activity).get(CategoryViewModel::class.java)
+        //categoryViewModel = ViewModelProvider(activity).get(CategoryViewModel::class.java)
+
 
         btnEditText.setOnClickListener{
             inputAmount = editTextMoney.text.toString() //actually takes in the user input and converts to a string

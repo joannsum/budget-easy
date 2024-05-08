@@ -21,7 +21,6 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import com.github.mikephil.charting.animation.Easing
 
-
 class MainActivity : AppCompatActivity() {
     private lateinit var binding:ActivityMainBinding
     private lateinit var transactions : ArrayList<Transaction> // for time
