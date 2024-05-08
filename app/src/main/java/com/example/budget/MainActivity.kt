@@ -114,29 +114,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun updateCategories(){
-//
-    }
-
-     fun addBudget( valueMon: Double){
-         if (::transactions.isInitialized) {
-             transactions.add(Transaction("Saved",valueMon.toDouble(),"GOT PAIDD"))
-
-             categories[0].amount = valueMon
-
-             var temp = "Categories: "
-             for (thing in categories){
-                 temp += (thing.label + " " + thing.amount.toString())
-             }
-             Toast.makeText(baseContext, temp, Toast.LENGTH_LONG).show()   //displays converted user input
-
-         }
-
-//         updateDashboard()
-//         setChart()
-
-    }
-
     private fun updateDashboard(){
 
         totalAmount = transactions.sumOf { it.amount }

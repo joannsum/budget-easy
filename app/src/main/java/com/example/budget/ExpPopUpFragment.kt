@@ -78,9 +78,6 @@ class ExpPopUpFragment : DialogFragment() { //Exp stands for 'expense'
         }
         //end of dropdown/spinner code
 
-//        val categoryRepository = CategoryRepository() // Create your repository instance
-//        val categoryViewModelFactory = CategoryModelFactory(categoryRepository)
-//        categoryViewModel = ViewModelProvider(requireActivity(), categoryViewModelFactory).get(CategoryViewModel::class.java)
         val application = requireActivity().application as? SomeApplication
         val repository = application?.repository
         if (repository == null) {
@@ -88,7 +85,6 @@ class ExpPopUpFragment : DialogFragment() { //Exp stands for 'expense'
         }
         categoryViewModel = ViewModelProvider(requireActivity(), CategoryModelFactory(repository)).get(CategoryViewModel::class.java)
 
-        //categoryViewModel = ViewModelProvider(activity).get(CategoryViewModel::class.java)
 
 
         btnEditText.setOnClickListener{
