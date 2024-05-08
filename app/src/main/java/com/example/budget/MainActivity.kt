@@ -147,6 +147,8 @@ class MainActivity : AppCompatActivity() {
             //entertainment
             categories[4].amount = categoryViewModel.calculateFunTotal(list)
 
+            profitValues.clear()
+
             for (category in categories){
                 if (category.label == "Saved" && tooBig){
                     //do nothin
