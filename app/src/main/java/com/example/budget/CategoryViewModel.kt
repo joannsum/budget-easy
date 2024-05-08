@@ -24,6 +24,18 @@ class CategoryViewModel(private val repository: CategoryRepository): ViewModel()
         }
     }
 
+    fun calculateTotalAmount(list:List<Category>):Double{
+        return list.sumOf{ it.amount }
+    }
+
+    fun calculateTotalExpense(list:List<Category>):Double{
+        return list.filter { it.label != "Saved" }.sumOf{ it.amount }
+    }
+
+    fun calculateTotalBudget(list:List<Category>):Double{
+        return list.filter{ it.label == "Saved"}.sumOf{ it.amount }
+    }
+
     fun updateCategory(category: Category){
         viewModelScope.launch(Dispatchers.IO){
             repository.updateCategoryItem(category)

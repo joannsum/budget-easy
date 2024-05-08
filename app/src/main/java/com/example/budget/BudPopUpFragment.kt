@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.budget.databinding.FragmentBudPopUpBinding
+import kotlin.math.abs
 
 class BudPopUpFragment : DialogFragment() { //Bud stands for 'budget'
 
@@ -69,8 +70,12 @@ class BudPopUpFragment : DialogFragment() { //Bud stands for 'budget'
             else {
                 try {
                     var connectedString = "$" + valueMon + " " + inputDate
+
                     Toast.makeText(context, connectedString, Toast.LENGTH_LONG).show()   //displays converted user input
                     insertDataToDatabase("Saved",valueMon.toDouble(),inputDate,"Increase budget")
+
+//                    mainActivity.updateDashboard()
+
                 } catch (nfe: NumberFormatException) {
                     println("YOU FAILED IN LIFE and to parse here $nfe")
                 }

@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         transactions = arrayListOf(
             Transaction("Income",400.00, "Weekend Budget"),
             Transaction("Food",-20.00, "Bananas"),
@@ -116,9 +115,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateDashboard(){
 
-        totalAmount = transactions.sumOf { it.amount }
-        budgetAmount = transactions.filter { it.amount > 0 }.sumOf { it.amount }
-        expenseAmount = totalAmount - budgetAmount
+        categoryViewModel.categoryItems.observe(this) { list ->
+            totalAmount = categoryViewModel.calculateTotalAmount(list) // Assuming you have a function to calculate total
+            budgetAmount = categoryViewModel.calculateTotalBudget(list)
+            expenseAmount = categoryViewModel.calculateTotalExpense(list)
+        }
 
         binding.balance.text = "$ %.2f".format(totalAmount)
         binding.budget.text = "$ %.2f".format(budgetAmount)
