@@ -22,7 +22,9 @@ abstract class CategoryDatabase : RoomDatabase(){
                     context.applicationContext,
                     CategoryDatabase::class.java,
                     "category_table"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
                 instance
             }

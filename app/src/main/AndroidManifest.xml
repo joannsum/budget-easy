@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".SomeApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -22,11 +23,11 @@
             android:exported="false"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.Budget.NoActionBar" />
-        <activity
-            android:name=".AddTransactionActivity"
-            android:exported="false"
-            android:label="@string/title_activity_add_transaction"
-            android:theme="@style/Theme.Budget" />
+<!--        <activity-->
+<!--            android:name=".AddTransactionActivity"-->
+<!--            android:exported="false"-->
+<!--            android:label="@string/title_activity_add_transaction"-->
+<!--            android:theme="@style/Theme.Budget" />-->
         <activity
             android:name=".MainActivity"
             android:exported="true">
